@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Feature Importance</title>
+  <style>
+  #xaxis .domain {
+    fill:none;
+    stroke:#000;
+  }
+  #xaxis text, #yaxis text {
+    font-size: 12px;
+  }
+  </style>
+</head>
+<body>
+  <div id="wrapper">
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+  <script>
+    var features = ['', 'older', 'reducesalt', 'atriskwaist', 'male', 'sedentary', 'sleeptrouble', 'losingweight', 'highalcohol', 'reducefat', 'incexercise', 'overweight', 'smoke100', 'sleepnormal', 'smoketobacco', 'twomilk', 'regmilk', 'onemilk', 'freemilk', 'soymilk', 'glutenfree'];
+
+    var percent = ['0.21', '0.10', '0.05', '0.05', '0.05', '0.05', '0.05', '0.05', '0.05', '0.05', '0.04', '0.04', '0.04', '0.04', '0.04', '0.04', '0.02', '0.02', '0.01', '0.01'];
+
+    var colors = ["#a05d56"];
+
+    var grid = d3.range(21).map(function(i){
+      return {'x1':0,'y1':0,'x2':0,'y2':700};
+    });
+
+    var tickVals = grid.map(function(d,i){
+      if(i>0){ return i; }
+      else if(i===0){ return "100";}
+    });
+
+    var xscale = d3.scale.linear()
+            .domain([0, 0.30])
+            .range([0,700]);
+
+    var yscale = d3.scale.linear()
+            .domain([0,features.length])
+            .range([0,550]);
+
+    var colorScale = d3.scale.quantize()
+            .domain([0,features.length])
+            .range(colors);
+
+    var canvas = d3.select('#wrapper')
+            .append('svg')
+            .attr({'width':750,'height':550});
+
+    var grids = canvas.append('g')
+              .attr('id','grid')
+              .attr('transform','translate(150,10)')
+              .selectAll('line')
+              .data(grid)
+              .enter()
+              .append('line')
+              .attr({'x1':function(d,i){ return i*30; },
+                 'y1':function(d){return d.y1; },
+                 'x2':function(d,i){ return i*30; },
+                 'y2':function(d){ return d.y2; },
+              })
+              .style({'stroke':'#adadad','stroke-width':'1px'});
+
+    var xAxis = d3.svg.axis();
+      xAxis
+        .orient('bottom')
+        .scale(xscale)
+        .tickValues(function(d, i) {return i*0.1})
+        .ticks(10);
+
+    var yAxis = d3.svg.axis();
+      yAxis
+        .orient('left')
+        .scale(yscale)
+        .tickSize(2)
+        .tickFormat(function(d,i){ return features[i]; })
+        .tickValues(d3.range(21));
+
+    var y_xis = canvas.append('g')
+              .attr("transform", "translate(150,0)")
+              .attr('id','yaxis')
+              .call(yAxis);
+
+    var x_xis = canvas.append('g')
+              .attr("transform", "translate(150,550)")
+              .attr('id','xaxis')
+              .call(xAxis);
+
+    var chart = canvas.append('g')
+              .attr("transform", "translate(150,0)")
+              .attr('id','bars')
+              .selectAll('rect')
+              .data(percent)
+              .enter()
+              .append('rect')
+              .attr('height',19)
+              .attr({'x':0,'y':function(d,i){ return yscale(i)+19; }})
+              .style('fill',function(d,i){ return colorScale(i); })
+              .attr('width',function(d){ return 0; });
+
+
+    var transit = d3.select("svg").selectAll("rect")
+                .data(percent)
+                .transition()
+                .duration(1000) 
+                .attr("width", function(d) {return xscale(d); });
+
+    var transitext = d3.select('#bars')
+              .selectAll('text')
+              .data(percent)
+              .enter()
+              .append('text')
+              .style("opacity", 0)
+              .transition()
+              .duration(2000) 
+              .attr({'x':function(d) {return xscale(d) - 22; },'y':function(d,i){ return yscale(i)+35; }})
+              .text(function(d){ return d*100+"%"; }).style({'fill':'#fff','font-size':'12px'})
+              //.text(function(d){ return d*100+"%"; }).style({'fill':'#fff','font-size':'14px'})
+              //.style("format", d3.format('%'))
+              .style("opacity", 1)
+              .style("font-family", 'sans serif');
+
+
+
+
+
+  </script>
+</body>
+</html>

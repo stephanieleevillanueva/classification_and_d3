@@ -1,0 +1,7 @@
+Classifier,Recall
+Bernoulli,0.6102
+Extra Trees,0.5974
+Gaussian,0.6262
+KNN,0.5623
+Log,0.5495
+SVC,0.5463
