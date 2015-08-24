@@ -34,3 +34,4 @@ Predicting hypertension using classification algorithms and basic visualization 
 
 <dl>
   <dt>py_and_ipynb_files</dt>
+  <dd>contains <b>.py</b> helper files for database connection using python and <b>.ipynb</b> notebooks for classification modeling and results analysis</dd>
