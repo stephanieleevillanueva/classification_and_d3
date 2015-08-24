@@ -6,15 +6,15 @@ Predicting hypertension using classification algorithms and basic visualization 
   <dt>d3</dt>
   <dd>contains <b>.html</b> files and <b>.csv</b> data files used to create the d3 bar graphs.</dd>
   * accuracy.html  
-      html file with css and javascript. Uses ``d3.js`` (with tooltip) library to generate the graph.
-  * tvseriesfinale.py  
-      uses BeautifulSoup module to scrape data from www.tvseriesfinale.py and generates variable ``canceled_shows`` for concluded TV shows from 2011-2015 and ``title`` for concluded TV show titles (subset of ``canceled_shows``)
-  * wikipedia-state.py  
-      generates variable ``show_state`` for shows and their settings (US state) as of July 2015  
-  * generate_tv_csv_dataset.py  
-      generates ``data/tv.csv`` dataset used in analysis  
-  * generate_tv_training_df.py  
-      converts ``data/tv.csv`` dataset into pandas dataframe ``tv_df``
+      html file with css and javascript. Uses ``d3.js`` (with tooltip) library to generate the graph
+  * pivot_accuracy.csv  
+      dataset used by accuracy.html
+  * recall.html  
+      html file with css and javascript. Uses ``d3.js`` (with tooltip) library to generate the graph  
+  * pivot_recall.csv  
+      dataset used by recall.html  
+  * feature_importance.html  
+      html file with css and javascript. Uses ``d3.js`` library and also uses transition to generate the graph
 
 <dl>
   <dt>data</dt>
