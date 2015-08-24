@@ -17,9 +17,13 @@ Predicting hypertension using classification algorithms and basic visualization 
       html file with css and javascript. Uses ``d3.js`` library and also uses transition to generate the graph
 
 <dl>
-  <dt>data</dt>
-  <dd>contains <b>.dat</b> files relating to hypertension, pulled from www.cdc.gov website for year 2011-2012. This dataset is used in classifying people at risk for hypertension.</dd>
-  
+  <dt>sql</dt>
+  <dd>contains <b>.sql</b> scripts to generate final datasets used in classification models.rom www.cdc.gov website for year 201</dd>
+  * sql_tables.sql   
+      creates table schemas
+  * final_tables.sql  
+      selects only columns needed from ``sql_tables.sql`` and creates new filtered ``.sql`` tables
+
 <dl>
   <dt>data</dt>
   <dd>contains <b>.dat</b> files relating to hypertension, pulled from www.cdc.gov website for year 2011-2012. This dataset is used in classifying people at risk for hypertension.</dd>
