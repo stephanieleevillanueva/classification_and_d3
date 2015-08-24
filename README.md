@@ -23,6 +23,11 @@ Predicting hypertension using classification algorithms and basic visualization 
       creates table schemas
   * final_tables.sql  
       selects only columns needed from ``sql_tables.sql`` and creates new filtered ``.sql`` tables
+  * script_raw.sql  
+      joins tables from ``final_tables.sql`` and generates a single ``.sql`` table with data in its original form to be used for analysis.
+  * script_converted.sql  
+      takes ``script_raw.sql`` generated table and converts selected columns into binary form.
+      
 
 <dl>
   <dt>data</dt>
