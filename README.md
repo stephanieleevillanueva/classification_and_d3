@@ -33,18 +33,4 @@ Predicting hypertension using classification algorithms and basic visualization 
   <dd>contains <b>.dat</b> files relating to hypertension, pulled from www.cdc.gov website for year 2011-2012. This dataset is used in classifying people at risk for hypertension.</dd>
 
 <dl>
-  <dt>py_and_ipynb_files<dt>
-  <dd>contains <b>.py</b> helper files for database connection using python and <b>.ipynb</b> files
-  * pass_.py  
-      stores user's password for database  
-  * postgresql_conn.py  
-      defines ``sqlalchemy`` engine connection parameters
-  * cdc_data.ipynb  
-      populates database tables with data from the ``.dat`` files
-  * cdc_analysis.ipynb  
-      splits dataset into training and test data to build classification models and measure model metrics such as ``accuracy``, ``precision``, ``f1`` and ``roc curve``. Also uses sklearn feature called ``rfe`` or recursive feature elimination to reduce number of dimensions used in building the models.
-
-
-
-
-
+  <dt>py_and_ipynb_files</dt>
