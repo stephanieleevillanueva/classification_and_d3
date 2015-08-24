@@ -18,8 +18,13 @@ Predicting hypertension using classification algorithms and basic visualization 
 
 <dl>
   <dt>data</dt>
-  <dd>contains <b>.dat</b> files relating to hypertension, pulled from www.cdc.gov website for year 2011-2012. This dataset is used in classifying people at risk for hypertension.</dd> 
-  * tv_20150718_dataset.csv  
-      backup copy of dataset used in analysis (can be used for analysis when webscraping fails)
+  <dd>contains <b>.dat</b> files relating to hypertension, pulled from www.cdc.gov website for year 2011-2012. This dataset is used in classifying people at risk for hypertension.</dd>
+  
+<dl>
+  <dt>data</dt>
+  <dd>contains <b>.dat</b> files relating to hypertension, pulled from www.cdc.gov website for year 2011-2012. This dataset is used in classifying people at risk for hypertension.</dd>
+
+
+
 
 
